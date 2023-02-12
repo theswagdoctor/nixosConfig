@@ -1,0 +1,2 @@
+player=mpv --no-video
+default-stream=audio_only
