@@ -87,19 +87,8 @@ services.pipewire = {
 
 
  environment.shellAliases = {
-  sudo = "doas ";
   update = "nixos-rebuild --upgrade switch --flake .#nixDesktop";
  };
- #doas stuff 
-  security.sudo.enable = false;
-  security.doas = {
-    enable = true;
-    extraRules = [{
-      users = ["jacob"];
-      keepEnv = true;
-      persist = true;
-    }];
-  };
  
  environment.systemPackages = with pkgs; [
    #for vm

@@ -100,6 +100,21 @@
   services.mullvad-vpn.enable = true;
   services.gvfs.enable = true;
 
+  environment.shellAliases = {
+    sudo = "doas ";
+  };
+
+   #doas stuff 
+  security.sudo.enable = false;
+  security.doas = {
+    enable = true;
+    extraRules = [{
+      users = ["jacob"];
+      keepEnv = true;
+      persist = true;
+    }];
+  };
+
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {

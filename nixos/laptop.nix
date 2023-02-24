@@ -34,16 +34,8 @@ services.pipewire = {
     [[ "$(tty)" == /dev/tty1 ]] && Hyprland 
   '';
 
-#virt manager
  programs.dconf.enable = true;
- #virtualisation.libvirtd.enable = true;
 
- #gpu passthrough options
- #boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" "amd_iommu=on" ];
- #boot.extraModprobeConfig = ''
- #  options kvm ignore_msrs=1
- #  '';
-#bootloader
 boot.loader = {
    efi = {
  #     canTouchEfiVariables = true;
@@ -58,27 +50,18 @@ boot.loader = {
 
  services.xserver.enable = true;
 
- hardware.opengl.extraPackages = with pkgs; [
-  #amdvlk
-];
-# For 32 bit applications 
-# Only available on unstable
-hardware.opengl.extraPackages32 = with pkgs; [
-  #driversi686Linux.amdvlk
-];
-
  services.xserver.displayManager.lightdm.enable = false;
  services.xserver.displayManager.sddm.enable = false;
  services.xserver.displayManager.gdm.enable = false;
 
- #steam 
- #programs.steam.enable = true;
-
- #linux zen
  boot.kernelPackages = pkgs.linuxPackages_latest;
 
  #backlight 
  hardware.acpilight.enable = true;
+
+ environment.shellAliases = {
+    update = "nixos-rebuild --upgrade switch --flake .#nixLaptop";
+ };
  
  environment.systemPackages = [
      pkgs.ntfs3g pkgs.gnome-themes-extra
