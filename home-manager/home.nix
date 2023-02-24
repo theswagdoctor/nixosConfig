@@ -15,6 +15,7 @@
 #    ./sway.nix
     ./hyprland.nix
     ./nvim.nix
+    ./newsboat.nix
 #    ./color.nix
 #   ./desktop.nix
   ];
