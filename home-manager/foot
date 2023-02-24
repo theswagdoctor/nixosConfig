@@ -1,8 +1,12 @@
-{ config, ...}: 
-let
-  colors = import ./colors.nix;
+{ config,  ...}: 
+let 
+
+  colors = import [./color.nix];
 in
 {
+
+  
+
 
   programs.foot.enable = true;
   programs.foot.settings = {

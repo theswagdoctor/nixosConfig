@@ -2,6 +2,7 @@
 
  imports = [
   ./hardware-desktop.nix
+  ./docker.nix
  ];
 
  hardware.opengl = {
@@ -55,14 +56,14 @@ services.pipewire = {
 
  services.xserver.enable = true;
 
- hardware.opengl.extraPackages = with pkgs; [
-  amdvlk
-];
-# For 32 bit applications 
-# Only available on unstable
-hardware.opengl.extraPackages32 = with pkgs; [
-  driversi686Linux.amdvlk
-];
+# hardware.opengl.extraPackages = with pkgs; [
+#  amdvlk
+#];
+## For 32 bit applications 
+## Only available on unstable
+#hardware.opengl.extraPackages32 = with pkgs; [
+#  driversi686Linux.amdvlk
+#];
 
  services.xserver.displayManager.lightdm.enable = false;
  services.xserver.displayManager.sddm.enable = false;

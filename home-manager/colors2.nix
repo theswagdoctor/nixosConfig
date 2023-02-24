@@ -1,6 +1,6 @@
-{libs, config, ...}
+{libs, config, ...}: {
 
-  colors =  {
+  colors = {
     base = "191724";
     surface = "1f1d2e";
     overlay = "26233a";
@@ -17,5 +17,4 @@
     hMed = "403d52";
     hHigh = "524f67";
   };
-
 }

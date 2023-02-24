@@ -1,7 +1,9 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }: 
+
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -13,6 +15,7 @@
 #    ./sway.nix
     ./hyprland.nix
     ./nvim.nix
+#    ./color.nix
 #   ./desktop.nix
   ];
 
@@ -63,27 +66,42 @@
     nicotine-plus
     aria2
     cava
+    spotify
     #pcmanfm
     pcmanfm
     gvfs
     #fonts
-    noto-fonts
+#    noto-fonts
     noto-fonts-extra
     noto-fonts-emoji
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
+    nerdfonts
 
     unzip
     tldr
     trash-cli
     weechat
+    zathura
+
+    nitch 
+    yt-dlp
   ];
-  
+
+  fonts.fontconfig.enable = true;
+  home.sessionVariables = {
+    NNN_TRASH = "trash-cli";
+    NNN_OPTS="C";
+    NNN_COLORS="3124";
+  };
+
   programs.bash.enable = true;
   programs.bash.shellAliases = {
-    rm = "trash -v";
     imv = "imv-dir";
   };
+  programs.bash.initExtra = ''
+      source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+    '';
 
  # programs.autojump.enable = true;
  # programs.autojump.enableBashIntegration = true;

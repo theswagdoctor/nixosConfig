@@ -61,8 +61,19 @@
 
   #: Add the rest of your current configuration
 
-  networking.nameservers = ["8.8.8.8"];
+  networking.nameservers = ["10.10.10.11"];
+  networking.hosts = {
+    "10.10.10.11" = ["pi"];
+    "10.10.10.10" = ["desktop"];
+    "10.10.10.12" = ["laptop"];
+  };
 
+  users.motd = ''
+    ACTIVATE LINUX
+  Go to Settings to activate Linux
+  '';
+  security.pam.services.jacob.showMotd = true;
+  security.pam.services.root.showMotd = true;
 
   # : This is just an example, be sure to use whatever bootloader you prefer
 
@@ -102,7 +113,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-     git efibootmgr lm_sensors psmisc sshfs tmux htop gptfdisk wget nethogs gotop iotop nnn pciutils 
+   bc traceroute nmap ntfs3g git efibootmgr lm_sensors psmisc sshfs tmux htop gptfdisk wget nethogs gotop iotop nnn pciutils 
   ];
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.11";

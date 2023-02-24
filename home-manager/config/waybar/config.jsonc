@@ -43,13 +43,6 @@
             "10": []
         }
     },
-   "custom/weather" : {
-        "tooltip" : true,
-        "format" : "{}",
-        "interval" : 30,
-        "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
-        "return-type" : "json"
-    },
     "tray": {
         "icon-size": 13,
         "spacing": 10
@@ -83,8 +76,8 @@
         "tooltip": false,
         "format-muted": " Muted",
         "on-click": "pulsemixer --toggle-mute",
-        "on-scroll-up": "pamixer -i 5",
-        "on-scroll-down": "pamixer -d 5",
+        "on-scroll-up": "wpctl set-default 37",
+        "on-scroll-down": "wpctl set-default 50",
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
