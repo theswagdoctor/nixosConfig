@@ -96,11 +96,11 @@
     NNN_COLORS="3124";
   };
 
-  programs.bash.enable = true;
-  programs.bash.shellAliases = {
+  programs.zsh.enable = true;
+  programs.zsh.shellAliases = {
     imv = "imv-dir";
   };
-  programs.bash.initExtra = ''
+  programs.zsh.initExtra = ''
       source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
 

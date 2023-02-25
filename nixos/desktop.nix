@@ -3,6 +3,7 @@
  imports = [
   ./hardware-desktop.nix
   ./docker.nix
+  ./head.nix
  ];
 
  hardware.opengl = {
@@ -13,46 +14,9 @@
  #hostname
  networking.hostName = "nixDesktop";
 
- #docker
-# virtualisation.docker = {
-#  enable = true;
-#  enableOnBoot = true;
-#  rootless = {
-#    enable = true;
-#    setSocketVariable = true;
-#  };
-# };
-
-
- # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
-#sound.enable = false;
-
-# rtkit is optional but recommended
-security.rtkit.enable = true;
-services.pipewire = {
-  enable = true;
-  alsa.enable = true;
-  alsa.support32Bit = true;
-  pulse.enable = true;
-  # If you want to use JACK applications, uncomment this
-  #jack.enable = true;
-};
-
- security.polkit.enable =true;
- services.dbus.enable = true;
- fonts.enableDefaultFonts = true;
-
- #autologin and launch sway
- services.getty.autologinUser = "jacob";
- environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && Hyprland 
-  '';
-
 #virt manager
- programs.dconf.enable = true;
  virtualisation.libvirtd.enable = true;
  virtualisation.libvirtd.qemu.ovmf.enable = true;
-
 
  services.xserver.enable = true;
 
@@ -64,10 +28,6 @@ services.pipewire = {
 #hardware.opengl.extraPackages32 = with pkgs; [
 #  driversi686Linux.amdvlk
 #];
-
- services.xserver.displayManager.lightdm.enable = false;
- services.xserver.displayManager.sddm.enable = false;
- services.xserver.displayManager.gdm.enable = false;
 
  #steam 
  programs.steam.enable = true;
@@ -84,7 +44,6 @@ services.pipewire = {
  services.zfs.autoSnapshot.enable = true;
  boot.supportedFilesystems = ["zfs" "btrfs"];
  networking.hostId = (builtins.substring 0 8 (builtins.readFile "/etc/machine-id"));
-
 
  environment.shellAliases = {
   update = "nixos-rebuild --upgrade switch --flake .#nixDesktop";
