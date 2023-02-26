@@ -131,6 +131,7 @@ bind = $mainMod, M, exit,
 bind = $mainMod SHIFT, F, exec, firefox 
 bind = $mainMod, Space, togglefloating, 
 bind = $mainMod, D, exec, rofi -show run
+bind = $mainMod, E, exec, rofi -modi emoji -show -emoji
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, V, togglesplit, # dwindle
 bind = $mainMod, F, fullscreen,
