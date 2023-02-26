@@ -8,7 +8,7 @@
  programs.foot.enable = true;
  programs.waybar.enable = true;
  home.packages = with pkgs; [
- font-awesome swayidle swaybg wlsunset wl-clipboard mako wev 
+ font-awesome swayidle swaybg wlsunset wl-clipboard mako rofi-wayland rofimoji wev 
  ];
 
 home.sessionVariables = {
