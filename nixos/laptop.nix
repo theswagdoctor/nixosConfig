@@ -9,6 +9,8 @@
 #sound.enable = false;
 networking.hostName = "nixLaptop";
 
+services.logind.lidSwitchExternalPower = "ignore";
+
 boot.loader = {
    efi = {
  #     canTouchEfiVariables = true;
