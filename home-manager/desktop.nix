@@ -8,6 +8,7 @@
    openrgb
    gimp
    discord
+   calibre
 
    python3
    chatterino2
