@@ -38,4 +38,7 @@
   #adds shell to /etc/shells which some programs use to determine user privelege 
   environment.shells = with pkgs; [ zsh ];
 
+  environment.systemPackages = with pkgs; [
+  ];
+
 }

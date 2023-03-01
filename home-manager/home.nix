@@ -87,6 +87,8 @@
 
     nitch 
     yt-dlp
+
+    baobab
   ];
 
   fonts.fontconfig.enable = true;
