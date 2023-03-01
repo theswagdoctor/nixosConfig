@@ -128,7 +128,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-   bc traceroute nmap ntfs3g git efibootmgr lm_sensors psmisc sshfs tmux htop gptfdisk wget nethogs gotop iotop nnn pciutils 
+   smartmontools bc traceroute nmap ntfs3g git efibootmgr lm_sensors psmisc sshfs tmux htop gptfdisk wget nethogs gotop iotop nnn pciutils 
   ];
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "22.11";
