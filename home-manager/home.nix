@@ -18,6 +18,7 @@
     ./newsboat.nix
 #    ./color.nix
 #   ./desktop.nix
+    ./mpv.nix
   ];
 
   nixpkgs = {
