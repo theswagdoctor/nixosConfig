@@ -5,6 +5,15 @@
   ./head.nix
  ];
 
+ hardware.opengl = {
+  extraPackages = with pkgs; [
+    intel-media-driver
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
+  ];
+ };
+
  # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
 #sound.enable = false;
 networking.hostName = "nixLaptop";
@@ -32,7 +41,7 @@ boot.loader = {
     update = "nixos-rebuild --upgrade switch --flake .#nixLaptop";
  };
  
- environment.systemPackages = [
-     pkgs.ntfs3g pkgs.gnome-themes-extra
+ environment.systemPackages = with pkgs; [
+    intel-gpu-tools ntfs3g gnome-themes-extra
   ];
  }

@@ -18,6 +18,7 @@
     ./newsboat.nix
 #    ./color.nix
 #   ./desktop.nix
+    ./mpv.nix
   ];
 
   nixpkgs = {
@@ -87,6 +88,8 @@
 
     nitch 
     yt-dlp
+
+    baobab
   ];
 
   fonts.fontconfig.enable = true;
