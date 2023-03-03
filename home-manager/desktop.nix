@@ -11,7 +11,6 @@
    calibre
 
    python3
-   chatterino2
 
    (writeShellScriptBin "win10" ''
      virsh -c qemu:///system start win10 && looking-glass-client
