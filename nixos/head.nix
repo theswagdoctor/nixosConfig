@@ -31,12 +31,11 @@
 
   programs.dconf.enable = true;
 
-  programs.zsh.enable = true;
 
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.bash;
 
   #adds shell to /etc/shells which some programs use to determine user privelege 
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [ bash ];
 
   environment.systemPackages = with pkgs; [
   ];
