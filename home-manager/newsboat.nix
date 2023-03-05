@@ -3,7 +3,7 @@
 
   programs.newsboat = rec{
     enable = true;
-    browser = "\${pkgs.xdg-utils}/bin/xdg-open"; 
+    browser = "firefox"; 
     extraConfig = ''
       macro m set browser "mpv %u" ; open-in-browser ; set browser "${browser}"
     '';
