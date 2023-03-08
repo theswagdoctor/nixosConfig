@@ -52,6 +52,7 @@
         modules = [ 
           ./home-manager/home.nix
           ./home-manager/desktop.nix
+          ./modules/test.nix
           hyprland.homeManagerModules.default{}
         ];   
       };

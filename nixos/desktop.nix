@@ -4,6 +4,7 @@
   ./hardware-desktop.nix
   ./docker.nix
   ./head.nix
+  ../modules/passthrough.nix
  ];
 
  hardware.opengl = {
@@ -37,6 +38,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  vfio.enable = true;
 
  #zfs
  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;

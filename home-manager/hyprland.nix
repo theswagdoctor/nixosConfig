@@ -3,6 +3,7 @@
  imports = [
   ./foot.nix
   ./waybar.nix
+  ./rofi.nix
  ];
 
  programs.foot.enable = true;

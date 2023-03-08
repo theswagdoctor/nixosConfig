@@ -1,14 +1,21 @@
+{config, pkgs, lib, ...}:
+let
+  color = config.colors.color;
+in
+{
+  home.file = {".config/rofi/config.rasi".text = ''
+    
 * {
-    bg: #191724;
-    cur: #26233a;
-    fgd: #e0def4;
-    cmt: #6e6a86;
-    cya: #9ccfd8;
-    grn: #31748f;
-    ora: #ebbcba;
-    pur: #c4a7e7;
-    red: #eb6f92;
-    yel: #f6c177;
+    bg: #${color.base};
+    cur: #${color.overlay};
+    fgd: #${color.text};
+    cmt: #${color.muted};
+    cya: #${color.foam};
+    grn: #${color.pine};
+    ora: #${color.rose};
+    pur: #${color.iris};
+    red: #${color.love};
+    yel: #${color.gold};
 
     font: "Cartograph CF 12";
 
@@ -130,4 +137,7 @@
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
     text-color: @grn;
+}
+
+  '';};
 }

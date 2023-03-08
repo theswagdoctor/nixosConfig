@@ -1,4 +1,10 @@
-{ inputs, pkgs, ...}: {
+{config, inputs, pkgs, ...}:
+
+let 
+  color = config.colors.color;
+in
+
+{  
 
   programs.foot.enable = true;
   programs.foot.settings = {
@@ -7,30 +13,30 @@
      font = "monospace:size=12";
     };
     cursor = {
-      color = "191724 e0def4"; # text
+      color = "${color.base} ${color.text}"; # text
     };
     colors = {
       alpha = "0.8";
-      background = "191724"; # base
-      foreground = "e0def4"; # text
+      background = "${color.base}"; # base
+      foreground = "${color.text}"; # text
 
-      regular0="26233a";  # black (Overlay)
-      regular1="eb6f92";  # red (Love)
-      regular2="31748f";  # green (Pine)
-      regular3="f6c177";  # yellow (Gold)
-      regular4="9ccfd8";  # blue (Foam)
-      regular5="c4a7e7";  # magenta (Iris)
-      regular6="ebbcba";  # cyan (Rose)
-      regular7="e0def4";  # white (Text)
+      regular0="${color.overlay}";  # black (Overlay)
+      regular1="${color.love}";  # red (Love)
+      regular2="${color.pine}";  # green (Pine)
+      regular3="${color.gold}";  # yellow (Gold)
+      regular4="${color.foam}";  # blue (Foam)
+      regular5="${color.iris}";  # magenta (Iris)
+      regular6="${color.rose}";  # cyan (Rose)
+      regular7="${color.text}";  # white (Text)
       
-      bright0="6e6a86";   # bright black (Overlay)
-      bright1="eb6f92";   # bright red (Love)
-      bright2="31748f";   # bright green (Pine)
-      bright3="f6c177";   # bright yellow (Gold)
-      bright4="9ccfd8";   # bright blue (Foam)
-      bright5="c4a7e7";   # bright magenta (Iris)
-      bright6="ebbcba";   # bright cyan (Rose)
-      bright7="e0def4";   # bright white (Text)
+      bright0="${color.overlay}";   # bright black (Overlay)
+      bright1="${color.love}";   # bright red (Love)
+      bright2="${color.pine}";   # bright green (Pine)
+      bright3="${color.gold}";   # bright yellow (Gold)
+      bright4="${color.foam}";   # bright blue (Foam)
+      bright5="${color.iris}";   # bright magenta (Iris)
+      bright6="${color.rose}";   # bright cyan (Rose)
+      bright7="${color.text}";   # bright white (Text)
     };
   }; 
 

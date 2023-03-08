@@ -9,17 +9,9 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" "vfio-pci" ];
-  #gpu passthrough
-  boot.initrd.kernelModules = [
-    "vfio_pci" "vfio" "vfio_iommu_type1" "vfio_virqfd"
-    "amdgpu"
-  ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [ "vfio-pci.ids=1002:67df,1002:aaf0" "iommu=pt" "video=efifb:off" "amdgpu.ppfeaturemask=0xffffffff" "amd_iommu=on" ];
-  boot.extraModprobeConfig = ''
-   options kvm ignore_msrs=1
-  '';
+  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" "amd_iommu=on" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/ed40a5eb-3cb1-44aa-8a6e-f92e5939cc78";

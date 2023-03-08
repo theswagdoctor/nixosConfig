@@ -19,6 +19,7 @@
 #    ./color.nix
 #   ./desktop.nix
     ./mpv.nix
+    ../modules/test.nix
   ];
 
   nixpkgs = {
@@ -88,6 +89,9 @@
 
     nitch 
     yt-dlp
+    megatools
+    #telegram desktop
+    tdesktop
 
     baobab
   ];
