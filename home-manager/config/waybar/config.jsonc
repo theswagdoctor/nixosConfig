@@ -32,14 +32,11 @@
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "urgent": "",
-            "active": "",
-            "default": ""
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5"
           }
     },
     // "cpu": {
@@ -54,11 +51,11 @@
     //     "format-alt":" {used:0.1f}G",
     //     "max-length": 10
     // },
-    "custom/updates": {
-        "exec": "(paru -Qua) | wc -l",
-        "interval": 7200,
-        "format": " {}"
-    },
+    //"custom/updates": {
+    //    "exec": "(paru -Qua) | wc -l",
+    //    "interval": 7200,
+    //    "format": " {}"
+    //},
     // "custom/language": {
     //     "exec": "cat /tmp/kb_layout",
     //     "interval": 3,
