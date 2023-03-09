@@ -1,4 +1,8 @@
-{ inputs, pkgs, ...}: {
+{ inputs, pkgs, config, ...}: 
+let
+  color = config.colors.color;
+in
+{
 
   programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {
     mesonFlags = (oa.mesonFlags or  [ ]) ++ [ "-Dexperimental=true" ];
@@ -8,17 +12,8 @@
         '';
   });
   programs.waybar.enable = true;
-#  programs.waybar.settings = {
-#    mainBar = {
-#     height = 22;
-#     modules-left = ["sway/workspaces" "sway/mode" "custom/media"];
-#     modules-center = ["sway/window"];
-#     modules-right= ["idle_inhibitor" "pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "battery" "battery#bat2" "clock" "tray"];
-#    };
-#  }; 
   programs.waybar.style = ''
 
-    
 * {
     border: none;
     border-radius: 0;
@@ -29,37 +24,37 @@
 }
 
 window#waybar {
-    background: rgba(21, 18, 27, 1);
-    color: #cdd6f4;
+    background: rgba(21, 18, 27, 0);
+    color: #${color.text};
 }
 
 tooltip {
-    background: #1e1e2e;
+    background: #${color.surface};
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
-    border-color: #11111b;
+    border-color: #${color.muted};
 }
 
 #workspaces button {
     padding: 5px;
-    color: #313244;
+    color: #${color.subtle};
     margin-right: 5px;
 }
 
 #workspaces button.active {
-    color: #a6adc8;
+    color: #${color.rose};
 }
 
 #workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
+    color: #${color.foam};
+    background: #${color.base};
     border-radius: 10px;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
+    color: #${color.love};
+    background: #${color.foam};
     border-radius: 10px;
 }
 
@@ -118,6 +113,7 @@ tooltip {
     color: #f5c2e7;
     border-left: 0px;
     border-right: 0px;
+    border-radius: 10px 0px 0px 10px;;
 }
 
 #window {
@@ -127,9 +123,9 @@ tooltip {
 }
 
 #clock {
-    color: #fab387;
+    color: #${color.foam};
     border-radius: 10px 0px 0px 10px;
-    margin-left: 0px;
+    margin-left: 5px;
     border-right: 0px;
 }
 
@@ -147,8 +143,8 @@ tooltip {
 
 #pulseaudio.microphone {
     color: #cba6f7;
-    border-left: 0px;
-    border-right: 0px;
+    margin-right: 5px;
+    border-radius: 0 10px 10px 0;
 }
 
 #battery {
@@ -163,7 +159,6 @@ tooltip {
     border-right: 0px;
     margin-left: 0px;
 }
-
   '';
 
 }

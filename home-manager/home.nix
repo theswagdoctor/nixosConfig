@@ -19,6 +19,7 @@
 #    ./color.nix
 #   ./desktop.nix
     ./mpv.nix
+    ./cava.nix
     ../modules/test.nix
   ];
 
@@ -94,6 +95,9 @@
     tdesktop
 
     baobab
+
+  #add for waybar weather plugin
+  (python3.withPackages (p: with p; [requests ]))
   ];
 
   fonts.fontconfig.enable = true;

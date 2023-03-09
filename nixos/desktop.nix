@@ -67,6 +67,7 @@
    glib
    usbutils
    radeontop
+
   ];
 
   #openrgb
