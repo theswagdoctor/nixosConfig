@@ -1,8 +1,8 @@
 let
   # RTX 3070 Ti
   gpuIDs = [
-    "1002:67df" # Graphics
-    "1002:aaf0" # Audio
+    "1002:731f" # Graphics
+    "1002:ab38" # Audio
   ];
 in { pkgs, lib, config, ... }: {
   options.vfio.enable = with lib;
@@ -21,11 +21,12 @@ in { pkgs, lib, config, ... }: {
        ];
       extraModprobeConfig = ''
         options kvm ignore_msrs=1
+        options kvm report_ignored_msrs=0
       '';
 
       kernelParams = [
         # enable IOMMU
-        "amd_iommu=on" "iommu=pt"  "video=efifb:off"
+        "amd_iommu=on" "iommu=pt" "initcall_blacklist=sysfb_init" 
       ] ++ lib.optional cfg.enable
         # isolate the GPU
         ("vfio-pci.ids=" + lib.concatStringsSep "," gpuIDs);
