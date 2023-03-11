@@ -18,7 +18,6 @@
     ./newsboat.nix
 #    ./color.nix
 #   ./desktop.nix
-    ./mpv.nix
     ./cava.nix
     ../modules/test.nix
   ];
@@ -95,6 +94,8 @@
     tdesktop
 
     baobab
+
+    mpv
 
   #add for waybar weather plugin
   (python3.withPackages (p: with p; [requests ]))
