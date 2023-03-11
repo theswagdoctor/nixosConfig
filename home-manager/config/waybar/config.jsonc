@@ -19,7 +19,8 @@
         "custom/updates",
         // "custom/language",
         "pulseaudio",
-        "pulseaudio#microphone"
+        "pulseaudio#microphone",
+	"battery"
     ],
 
     "hyprland/window": {
@@ -105,5 +106,10 @@
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 5
+    },
+    "battery":{
+    	"format": "{capacity}% {icon}",
+	"format-icons": ["", "", "", "", ""]
     }
+
 }
