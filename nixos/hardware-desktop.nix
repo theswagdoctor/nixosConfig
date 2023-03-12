@@ -8,23 +8,36 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" "vfio-pci" ];
+  #boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" "vfio-pci" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "uas" "usbhid" "usb_storage" "sd_mod" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [ "nvme_core.default_ps_max_latency_us=0" "amdgpu.ppfeaturemask=0xffffffff" "amd_iommu=on" ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/ed40a5eb-3cb1-44aa-8a6e-f92e5939cc78";
-      fsType = "btrfs";
-      options = ["ssd" "discard" "noatime"];
+#  fileSystems."/" =
+#    { device = "/dev/disk/by-uuid/ed40a5eb-3cb1-44aa-8a6e-f92e5939cc78";
+#      fsType = "btrfs";
+#      options = ["ssd" "discard" "noatime"];
+#    };
+#
+#  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/089c0259-e492-447d-935f-f273b8796d04";
+#
+#  fileSystems."/boot" =
+#    { device = "/dev/disk/by-uuid/61BC-7413";
+#      fsType = "vfat";
+#    };
+   fileSystems."/"=
+    { device = "/dev/disk/by-uuid/c342f387-1311-4952-94fd-238956cd83f5";
+      fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/089c0259-e492-447d-935f-f273b8796d04";
+  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/9ee8dfc8-8485-405e-9fbe-0d0457df5063";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/61BC-7413";
+    { device = "/dev/disk/by-uuid/D87D-94AA";
       fsType = "vfat";
     };
+
 
   fileSystems."/home/jacob/media" =
     { device = "/dev/disk/by-uuid/8db7f5e7-af75-483c-af2b-2550021ae39d";
