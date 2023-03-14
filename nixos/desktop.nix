@@ -2,7 +2,7 @@
 
  imports = [
   ./hardware-desktop.nix
-  ./docker.nix
+#  ./docker.nix
   ./head.nix
   ../modules/passthrough.nix
  ];
